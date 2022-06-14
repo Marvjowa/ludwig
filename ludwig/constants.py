@@ -130,6 +130,9 @@ SEARCH_ALG = "search_alg"
 SCHEDULER = "scheduler"
 PARAMETERS = "parameters"
 
+INPUT_FEATURES = "input_features"
+OUTPUT_FEATURES = "output_features"
+
 NAME = "name"
 COLUMN = "column"
 TYPE = "type"
