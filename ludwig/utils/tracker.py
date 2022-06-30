@@ -18,9 +18,10 @@ from ludwig.utils.data_utils import load_json, save_json
 from ludwig.utils.misc_utils import processify
 
 <<<<<<< HEAD
-from experiment_impact_tracker.py_environment.common import get_python_packages_and_versions
-from experiment_impact_tracker.gpu.nvidia import get_gpu_info
 from experiment_impact_tracker.cpu.common import get_my_cpu_info
+from experiment_impact_tracker.gpu.nvidia import get_gpu_info
+from experiment_impact_tracker.py_environment.common import get_python_packages_and_versions
+
 =======
 # disabling print because the following imports are verbose
 f = open(os.devnull, "w")
