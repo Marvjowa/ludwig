@@ -550,9 +550,42 @@ def FloatRangeTupleDataclassField(N=2, default: Tuple = (0.9, 0.999), min=0, max
     )
 
 
+def FloatOrAutoField(
+    allow_none: bool,
+    description: str,
+    default: Union[None, int, str],
+    default_numeric: Union[None, int] = None,
+    default_option: Union[None, str] = "auto",
+    min: Union[None, int] = None,
+    max: Union[None, int] = None,
+    min_exclusive: Union[None, int] = None,
+    max_exclusive: Union[None, int] = None,
+):
+    """Float that also permits an `auto` string value."""
+    options: List[str] = ["auto"]
+    return NumericOrStringOptionsField(**locals())
+
+
+def IntegerOrAutoField(
+    allow_none: bool,
+    description: str,
+    default: Union[None, int, str],
+    default_numeric: Union[None, int] = None,
+    default_option: Union[None, str] = "auto",
+    min: Union[None, int] = None,
+    max: Union[None, int] = None,
+    min_exclusive: Union[None, int] = None,
+    max_exclusive: Union[None, int] = None,
+):
+    """Integer that also permits an `auto` string value."""
+    options: List[str] = ["auto"]
+    return IntegerOrStringOptionsField(**locals())
+
+
 def IntegerOrStringOptionsField(
     options: TList[str],
     allow_none: bool,
+    description: str,
     default: Union[None, int],
     default_numeric: Union[None, int],
     default_option: Union[None, str],
@@ -561,7 +594,6 @@ def IntegerOrStringOptionsField(
     max: Union[None, int] = None,
     min_exclusive: Union[None, int] = None,
     max_exclusive: Union[None, int] = None,
-    description="",
 ):
     """Returns a dataclass field with marshmallow metadata enforcing strict integers or protected strings."""
     is_integer = True
